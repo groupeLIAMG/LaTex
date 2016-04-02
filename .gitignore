@@ -1,0 +1,22 @@
+# Extra Folders & Files
+
+*.py
+*.h5
+*.csv
+*.sh
+
+# LaTeX Files
+
+*.log
+*.aux
+*.gz
+*.out
+*.bbl
+*.blg
+*.lof
+*.toc
+*.bcf
+*.xml
+*.spl
+*.nlo
+*.lot

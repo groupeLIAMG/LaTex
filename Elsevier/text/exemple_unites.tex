@@ -1,0 +1,31 @@
+\documentclass[exemple_master.tex]{subfiles}
+
+\begin{document}
+
+\section{Les unités et langues}
+
+Le package \emph{siunitx} permet de gérer les espaces inséparables entre les unités, les liaisons entre les unités, les espaces dans les grands nombres, l'incertitude, les exposant et la forme exponentielle, le symbole utilisé pour la décimale, la façon dont les suites et les plages de nombres sont affichées, etc.
+
+On pourrait très bien tout taper directement dans le code sans passer par \emph{siunitx}. Toutefois, l'utilisation de \emph{siunitx} permet de s'assurer une uniformité totale de l'affiche des nombres et unités dans tout le document et permet d'apporter des changements à l'affichage de ces derniers à tout le document d'un seul coup en spécifiant des options dans le préambules.
+
+\subsection{En spécifiant que la langue est Anglais}
+\selectlanguage{english}
+
+Unité tout seul: \si{\percent} ou \si{\celsius} ou \si{\ampere} ou \si{\ohm}
+
+Range de valeurs: \SIrange{25000}{543456743}{W/cm^2 \celsius}
+
+Liste de valeurs: \SIlist{25;50;60.7;25.3}{W/cm^2 \celsius}
+
+Forme exponentielle: \SI{3.04e6}{m^2}
+
+Avec incertitude: \SI{3.04(10)}{m^2}
+
+\subsection{En spécifiant que la langue est le Français}
+\selectlanguage{french}
+
+Range de valeurs: \SIrange{25}{50}{W/cm^2 \celsius}
+
+Liste de valeurs: \SIlist{25;50;60.7;25.3}{W/cm^2 \celsius}
+
+\end{document}

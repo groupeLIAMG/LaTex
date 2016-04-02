@@ -1,0 +1,55 @@
+\documentclass[Master.tex]{subfiles}
+
+\begin{document}
+
+\section{Les tableaux}
+
+La création des tableaux est problablement une des tâches les plus fastidieuses de Latex. Par contre, le résultat final par contre en vaut la peine. Le \cref{tbl_mini_exemple} présente un example minimal de tableau. Tout comme pour les figures, la position des tableaux est flottante dans le texte.
+
+Le package \emph{siunitx} permet de gérer magnifiquement l'alignement des valeurs numériques. Quelques exemples sont donnés dans le \cref{tbl_mini_exemple}. Un tableau bien construit n'a jamais besoin de lignes verticales. Les colonnes sont définies par un alignement méticuleux du contenu.
+
+% Tout comme pour la figure, on se fait d'abord un floatbox (table) en spécifiant les options de positionnement dans le texte:
+
+\begin{table}[!tbh]
+    % On centre tout:
+    \centering
+    % On définit le caption:
+    \caption{On insère le titre du tableau ici}
+    % On lui donne un petit nom: 
+    \label{tbl_mini_exemple} 
+    % On crée un tableau. Chaque lettre dans les {} spécifie un type de colonne.
+    \begin{tabular}
+    {
+     l
+     S[table-format = 3.2(2)]
+     S[table-format = 1.2e1]
+     S[table-format = -2.1]
+    }
+    % On ajoute une ligne au top du tableau
+    \toprule
+    % On ajoute du contenu ligne par ligne. Les colonnes sont séparées par des & et les lignes par \\
+    Texte & {Incertitudes} & {Scientifiques} & {Décimales} \\
+    % On ajoute une ligne pour séparer l'entête du contenu
+    \midrule
+    Données 1 & 2.41(5) & 2.41e4 & 2.4 \\
+    Données 2 & 122.28(15) & 3.13e2 & 12.4 \\
+    Données 3 & 12.34(1) & 8.96e5 & -0.4 \\
+    % On ajoute une ligne au bas du tableau
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+% Le type des colonnes spécifié entre {} spécifie comment l'alignement des items dans chaque cellule est fait:
+
+% c : centré
+% l : justifié à gauche
+% r : justifié à droite
+% S : Colonne spéciale du package siunitx qui permet l'alignement des chiffres sur la décimale. Il faut spécifier le format des données pour chaque colonne. 
+
+% S[table-format = 3.2(2)] signifie que l'on a 3 chiffres avant et 2 après la décimale, avec une incertitude qui contient 2 décimales.
+
+% S[table-format = 1.2e1] signifie que l'on a 1 chiffres avant et 2 après la décimale, avec une notation décimale avec un exposant à 1 chiffre.
+
+% S[table-format = -2.1] signifie que l'on a 2 chiffres avant et 1 après la décimale et avec des valeurs négatives.
+
+\end{document}

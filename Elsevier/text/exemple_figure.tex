@@ -1,0 +1,37 @@
+\documentclass[exemple_master.tex]{subfiles}
+
+\begin{document}
+
+\section{Les figures}
+
+Je dirais que la gestion des figures est certainement l'avantage numéro un d'utiliser Latex par rapport à MS Word ou Open Office. On inclu les images dans le code Latex via un pointeur vers vers les fichiers images. Les images sont incorporées dans le document final lorsque le code est compilé. Ainsi il est possible de mettre toutes les images du document dans un seul dossier. Il est également possible de mettre à jour les images dans le document simplement en écrasant par une nouvelle version les fichiers images.
+
+Il est possible d'incorporer de base des images en pdf, png et jpg avec le package \emph{graphicx}. Les images vectorielles peuvent être sauvegardées en pdf, ce qui permet de préserver leur qualité dans le document final. Les images bitmap peuvent être sauvegardées en png pour les graphiques, logos et schémas et en jpg pour les photos. La \cref{fig1_exemple} présente un exemple de mise en page d'une figure dans Latex à partir d'une image en format jpg.
+
+Il faut essayer autant que possible de placer les figures dans le code à l'endroit où l'on voudrais qu'elle se situe à peu près dans le texte. Il faut généralement jouer un peu avec la position des images dans le code à la fin pour avoir une mise en page optimale. La position des images dans Latex est flottante. C'est à dire que, suivant certaines options que l'on peut spécifier, Latex va tenter de placer les images à un endroit optimal dans le texte. Dans l'exemple de la \cref{fig1_exemple}, il a été spécifié de placer l'image autant que possible en haut de la page. S'il s'avérait que cette option soit impossible, l'image sera placée en bas de la page, puis à travers le texte et enfin seule sur une page unique.
+
+La dimension des images peut également être spécifiée avec des dimensions fixes ou relatives. La seconde option est généralement préférée. Dans l'exemple de la \cref{fig1_exemple}, la largeur de l'image à été spécifiée égale à 50\% de la largeur de la colonne de texte. Une description détaillées des diverses options pour spécifier des grandeurs relative dans Latex est donné ici: \url{http://tex.stackexchange.com/a/17085/72419}
+
+% Premièrement, on crée un float box (un peu comme les tableaux que tu fais dans Word). Les options entre [] indique comment on veut que le float soit placé au travers du texte: 
+
+% b: en bas de la page ;
+% t: au top de la page ;
+% h: au-travers du texte ;
+% p: tout seul sur une page.
+% ! avant une lettre signifie une priorité de cette option si on met plus qu'une option.
+
+\begin{figure}[!tbh]
+% On indique d'abord que l'on veut que tout soit centré dans le floatbox.
+\centering
+
+% On inclu ensuite la figure dans le floatbox en specifiant le path vers le fichier. Pas besoin de mettre d'extension. Il est possible également de spécifier entre [] des options pour les dimensions de la figure. Dans ce cas, la figure aura une largeur correspondant à 50% de la largeur de la colonne de texte. Il y a d'autre option disponible selon ce que l'on veut faire:
+\includegraphics[width=0.5\columnwidth]{img/54701271}
+
+%Ensuite, on spécifie le caption de la figure:
+\caption[Petit titre pour la table des matière]{Il est possible de mettre un super méga ultra long titre à la figure et de définir un titre abbrégé pour la table des matières, n'est-ce pas merveilleux?}
+
+%Enfin, on lui donne un petit nom de code pour que l'on puisse référer à cette figure dans le texte (voir texte plus haut):
+\label{fig1_exemple}
+\end{figure}
+
+\end{document}

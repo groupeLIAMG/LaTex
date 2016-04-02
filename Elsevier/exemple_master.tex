@@ -1,0 +1,129 @@
+% Tout ce qui est avant "\begin{document}" est appelé le préambule. C'est là que l'on peut faire des modifications à la mise en page qui affectent le document en entier. Cela est fait en chargeant les packages que l'on veut et en spécifiant des options. Il existent une tonne de packages, il faut magasiner pour trouver ceux qui font notre affaire.
+
+%Voici un petit exemple de base avec le template (classe) qui est utilisé pour soumettre des papiers aux revues de Elsevier. La première chose à faire dans tout document LaTex est de spécifier la classe du document que l'on veut utiliser. Les options sont données entre [] alors que la classe est spécifiée entre {}.
+
+\documentclass[3p, times, review, english, french]{elsarticle} 
+
+% Description des options de base:
+
+% 1p, 3p ou 5p: affecte la mise en page du document.
+% times: le corps de texte sera en Times et les titres en Arial.
+% review ou preprint: affecte la mise en page du document. 
+% french, english: spécifie les langues utilisées dans le documents
+% twocolumn: si on voulait que le document soit en format 2 colonnes.
+% draft : enlève les figures du document. Pratique pour produire une version pour révision dans Word.
+
+% Maintenant, il faut charger les packages. Tout comme la classe du document, les options sont spécifiées entre [] et le package entre {}.
+
+% Pour pouvoir diviser le texte en plusieur fichiers
+\usepackage{subfiles} 
+
+%==== Text ====
+
+% Pour pouvoir taper les accents directement dans le code LaTex:
+\usepackage[utf8]{inputenc} 
+% Le ~ est utilisé dans le code pour faire des espaces inséparables. Pour une raison que j'ignore, ça bug si on ne le déclare pas dans le préambule:
+\DeclareUnicodeCharacter{00A0}{~}
+
+% Pour numéroter les lignes: 
+\usepackage{lineno} 
+% On spécifie par la suite que l'on veut un numéro toutes les 5 lignes de texte:
+\modulolinenumbers[5]
+
+%==== Language ====
+
+% On charge les dictionnaires pour la langue avec babel. Ceci est important pour la bibliographie, les liens avec les unités et aussi pour les hyperliens dans le texte.
+\usepackage[french, english]{babel}
+
+% NOTE: On peut avoir un document avec plusieurs langues, ce qui est important pour la thèse par article car on a l'anglais et le français qui s'alternent.
+
+%==== Code ====
+
+% Pour inclure du code à travers le texte:
+\usepackage{listings} 
+
+%==== Figures et Tableaux====
+
+% Pour inclure des figures dans le document:
+\usepackage{graphicx} 
+
+% Pour \paragraph{noabbrev} Ne fera pas d'abbréviation des labels. Si on enlève cette option, on aurait alors Fig. 1 dans le texte au lieu de Figure 1.
+
+% Pour faire de beaux tableaux:
+\usepackage{booktabs} 
+
+% Pour gérer les unités dans le texte et les tableaux:
+\usepackage[list-units = single, range-units = single, separate-uncertainty = true, multi-part-units=single]{siunitx} 
+
+% Pour gérer les titres des figures et tableaux:
+\usepackage{caption,subcaption}
+
+%==== Bibliography ====
+
+% Importe le style de la bibliography. Il y en a plusieurs de disponible, j'ai choisi celui-là par choix personel. Il y a souvent un style bibliographique qui est fourni avec la classe. Ici "model2-names" est fourni par elsevier.
+\bibliographystyle{model2-names}  % style Harvard
+\biboptions{authoryear}
+
+%==== Hyperref ====
+
+% Pour pouvoir faire des hyperliens dans le texte. Il est possible dans les options de spécifier une tonne d'options quant-à l'affiche des hyperliens. Ici je ne fais que dire de mettre les hyperliens en couleur. Je pourrais également spécifier la couleur, et ce, pour chaque type d'hyperlien (référence, url, figure, etc.).
+\usepackage[colorlinks=true]{hyperref}
+
+% Permet de faciliter la gestion des hyperliens dans le texte. Il est important de charger le package cleveref en tout dernier dans le préambule pour que ce dernier fonctionne correctement.
+\usepackage[noabbrev, capitalise, nameinlink, french, english]{cleveref} 
+
+%noabbrev: Ne fera pas d'abbréviation des labels. Par exemple, si on enlève cette option, on aurait alors Fig. 1 dans le texte au lieu de Figure 1.
+
+% capitalise: Force une majuscule sur la première lettre des labels. Si on enlève cette option, par défaut on aurait par exemple figure 1 dans le texte au lieu de Figure 1.
+
+% nameinlink: Met le label dans l'hyperlien. Par exemple, ce serait "Figure 1" au complet qui serait dans l'hyperlien, et non juste "1".
+
+
+\begin{document} % Ici débute le document en soit
+
+% Produit la page de présentation de l'article. Tout est fait par le template de "Elsarticle". Il faut juste "remplir les cases" en quelque sorte.
+%==================================
+\begin{frontmatter} 
+%==================================
+
+\journal{Journal of Hydrology}
+\title{Example \LaTeX avec le template de Elsevier}
+
+% Group authors per affiliation
+\author[inrs]{J.S.~Gosselin\corref{cor1}}
+\ead{jean-sebastien.gosselin@ete.inrs.ca}
+\author[cgc]{P.~Ladevèze}
+
+\address[inrs]{Institut national de la recherche scientifique, Centre Eau Terre Environnement, 490 rue de la Couronne, Quebec City, Quebec, Canada}
+\address[cgc]{Geological Survey of Canada, Quebec Division, 490 rue de la Couronne, Quebec City, Quebec, Canada}
+
+% On définit l'abstract de l'article:
+\begin{abstract}
+    % Question de garder le document principal où on assemble le texte et défini la mise en page clean, on peut diviser le texte en plusieurs fichiers. Ici, on importe donc dans le document le résumé qui est dans le fichier "exemple_resume.tex".
+    \subfile{text/exemple_resume.tex}
+\end{abstract}
+
+% On définit les mots clés:
+\begin{keyword}
+    \texttt{keyword 1\sep keyword 2\sep keyword 3\sep keyword 4}
+\end{keyword}
+  
+\end{frontmatter}
+
+% On indique que la numérotation des lignes commence ici dans le document.
+\linenumbers
+
+% On assemble ensuite les parties du documents en important les fichiers. Il est alors super facile de modifier la structure du document en changeant l'ordre des \subfile. On peut aussi enlever une section complète du document simplement en commentant la ligne du \subfile correspondante.
+
+\subfile{text/exemple_unites.tex}
+\subfile{text/exemple_figure.tex}
+\subfile{text/exemple_tableau.tex}
+\subfile{text/exemple_hyperliens.tex}
+\subfile{text/exemple_references.tex}
+
+% On crée finalement la bibliographie. On ajoute une étoile après "\section" lorsque l'on ne veut pas de numérotation. 
+\section*{Références} 
+
+\bibliography{exemple_bibliography.bib}
+
+\end{document}

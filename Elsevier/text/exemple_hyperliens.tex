@@ -1,0 +1,11 @@
+\documentclass[exemple_master.tex]{subfiles}
+
+\begin{document}
+
+\section{Les hyperliens}
+
+Grâce au package \emph{cref}, le mot "figure" n'a pas besoin d'être mis dans le code. \emph{cref} se charge de cela automatiquement. Par exemple, voici des hyperliens vers la \cref{fig1_exemple} et vers le \cref{tbl_mini_exemple}.
+
+C'est pratique si on voulait plus tard changer le format des labels, par exemple, écrire figure 1 ou Fig. 1 ou fig.1 au lieu de Figure 1. On aurait alors qu'une option à changer dans le préambule du document lorsque l'on charge le package \emph{cref} et le style de toutes les références serait mis à jour dans le document. Cela permet d'assurer une uniformité complète du style dans tout le document et évite les erreurs typographiques.
+
+\end{document}
