@@ -81,6 +81,9 @@
 
 \begin{document} % Ici débute le document en soit
 
+% On spécifie que le document est en français:
+\selectlanguage{french}
+
 % Produit la page de présentation de l'article. Tout est fait par le template de "Elsarticle". Il faut juste "remplir les cases" en quelque sorte.
 %==================================
 \begin{frontmatter} 
@@ -100,7 +103,7 @@
 % On définit l'abstract de l'article:
 \begin{abstract}
     % Question de garder le document principal où on assemble le texte et défini la mise en page clean, on peut diviser le texte en plusieurs fichiers. Ici, on importe donc dans le document le résumé qui est dans le fichier "exemple_resume.tex".
-    \subfile{text/exemple_resume.tex}
+    \subfile{text/sec_resume.tex}
 \end{abstract}
 
 % On définit les mots clés:
@@ -115,15 +118,16 @@
 
 % On assemble ensuite les parties du documents en important les fichiers. Il est alors super facile de modifier la structure du document en changeant l'ordre des \subfile. On peut aussi enlever une section complète du document simplement en commentant la ligne du \subfile correspondante.
 
-\subfile{text/exemple_unites.tex}
-\subfile{text/exemple_hyperliens.tex}
-\subfile{text/exemple_figure.tex}
-\subfile{text/exemple_tableau.tex}
-\subfile{text/exemple_references.tex}
+\subfile{text/sec_unites.tex}
+\subfile{text/sec_hyperliens.tex}
+\subfile{text/sec_figure.tex}
+\subfile{text/sec_tableau.tex}
+\subfile{text/sec_references.tex}
+\subfile{text/sec_remerciements.tex}
 
 % On crée finalement la bibliographie. On ajoute une étoile après "\section" lorsque l'on ne veut pas de numérotation. 
 \section*{Références} 
 
-\bibliography{exemple_bibliography.bib}
+\bibliography{text/bibliography.bib}
 
 \end{document}
