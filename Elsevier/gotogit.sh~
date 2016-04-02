@@ -1,4 +1,0 @@
-#!/bin/bash
-cd /home/jnsebgosselin/Dropbox/Scientific_Papers_Redaction/2016_gapfilling_weather_data
-git status
-exec bash
