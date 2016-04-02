@@ -1,4 +1,4 @@
-% Tout ce qui est avant "\begin{document}" est appelé le préambule. C'est là que l'on peut faire des modifications à la mise en page qui affectent le document en entier. Cela est fait en chargeant les packages que l'on veut et en spécifiant des options. Il existent une tonne de packages, il faut magasiner pour trouver ceux qui font notre affaire.
+% Tout ce qui est avant "\begin{document}" est appelé le préambule. C'est là que l'on peut faire des modifications à la mise en page qui affectent le document en entier. Cela est fait en chargeant les modules que l'on veut et en spécifiant des options. Il existent une tonne de modules, il faut magasiner pour trouver ceux qui font notre affaire.
 
 %Voici un petit exemple de base avec le template (classe) qui est utilisé pour soumettre des papiers aux revues de Elsevier. La première chose à faire dans tout document LaTex est de spécifier la classe du document que l'on veut utiliser. Les options sont données entre [] alors que la classe est spécifiée entre {}.
 
@@ -13,7 +13,7 @@
 % twocolumn: si on voulait que le document soit en format 2 colonnes.
 % draft : enlève les figures du document. Pratique pour produire une version pour révision dans Word.
 
-% Maintenant, il faut charger les packages. Tout comme la classe du document, les options sont spécifiées entre [] et le package entre {}.
+% Maintenant, il faut charger les modules. Tout comme la classe du document, les options sont spécifiées entre [] et le module entre {}.
 
 % Pour pouvoir diviser le texte en plusieur fichiers
 \usepackage{subfiles} 
@@ -69,7 +69,7 @@
 % Pour pouvoir faire des hyperliens dans le texte. Il est possible dans les options de spécifier une tonne d'options quant-à l'affiche des hyperliens. Ici je ne fais que dire de mettre les hyperliens en couleur. Je pourrais également spécifier la couleur, et ce, pour chaque type d'hyperlien (référence, url, figure, etc.).
 \usepackage[colorlinks=true]{hyperref}
 
-% Permet de faciliter la gestion des hyperliens dans le texte. Il est important de charger le package cleveref en tout dernier dans le préambule pour que ce dernier fonctionne correctement.
+% Permet de faciliter la gestion des hyperliens dans le texte. Il est important de charger le module cleveref en tout dernier dans le préambule pour que ce dernier fonctionne correctement.
 \usepackage[noabbrev, capitalise, nameinlink, french, english]{cleveref} 
 
 % noabbrev: Ne fera pas d'abbréviation des labels. Par exemple, si on enlève cette option, on aurait alors Fig. 1 dans le texte au lieu de Figure 1.
@@ -90,7 +90,7 @@
 \title{Example \LaTeX{} avec le template de Elsevier}
 
 % Group authors per affiliation
-\author[inrs]{J.S.~Gosselin\corref{cor1}}
+\author[inrs]{J.-S.~Gosselin\corref{cor1}}
 \ead{jean-sebastien.gosselin@ete.inrs.ca}
 \author[cgc]{P.~Ladevèze}
 
@@ -116,9 +116,9 @@
 % On assemble ensuite les parties du documents en important les fichiers. Il est alors super facile de modifier la structure du document en changeant l'ordre des \subfile. On peut aussi enlever une section complète du document simplement en commentant la ligne du \subfile correspondante.
 
 \subfile{text/exemple_unites.tex}
+\subfile{text/exemple_hyperliens.tex}
 \subfile{text/exemple_figure.tex}
 \subfile{text/exemple_tableau.tex}
-\subfile{text/exemple_hyperliens.tex}
 \subfile{text/exemple_references.tex}
 
 % On crée finalement la bibliographie. On ajoute une étoile après "\section" lorsque l'on ne veut pas de numérotation. 

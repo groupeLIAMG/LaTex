@@ -4,9 +4,9 @@
 
 \section{Les tableaux}
 
-La création des tableaux est problablement une des tâches les plus fastidieuses de Latex. Par contre, le résultat final par contre en vaut la peine. Le \cref{tbl_mini_exemple} présente un example minimal de tableau. Tout comme pour les figures, la position des tableaux est flottante dans le texte.
+La création des tableaux est problablement une des tâches les plus fastidieuses dans Latex. Par contre, le résultat final en vaut la peine. Le \cref{tbl_mini_exemple} présente un example minimal de tableau. Tout comme pour les figures, la position des tableaux est flottante dans le texte.
 
-Le package \emph{siunitx} permet de gérer magnifiquement l'alignement des valeurs numériques. Quelques exemples sont donnés dans le \cref{tbl_mini_exemple}. Un tableau bien construit n'a jamais besoin de lignes verticales. Les colonnes sont définies par un alignement méticuleux du contenu.
+Le module \emph{siunitx} permet de gérer magnifiquement l'alignement des valeurs numériques dans les colonnes. Quelques exemples sont donnés dans le \cref{tbl_mini_exemple}. Un tableau bien construit n'a jamais besoin de lignes verticales. Les colonnes sont plutôt définies par un alignement méticuleux du contenu.
 
 % Tout comme pour la figure, on se fait d'abord un floatbox (table) en spécifiant les options de positionnement dans le texte:
 
@@ -44,7 +44,8 @@ Le package \emph{siunitx} permet de gérer magnifiquement l'alignement des valeu
 % c : centré
 % l : justifié à gauche
 % r : justifié à droite
-% S : Colonne spéciale du package siunitx qui permet l'alignement des chiffres sur la décimale. Il faut spécifier le format des données pour chaque colonne. 
+
+% S : Colonne spéciale du module siunitx qui permet l'alignement des chiffres sur la décimale. Il faut spécifier le format des données pour chaque colonne. 
 
 % S[table-format = 3.2(2)] signifie que l'on a 3 chiffres avant et 2 après la décimale, avec une incertitude qui contient 2 décimales.
 
