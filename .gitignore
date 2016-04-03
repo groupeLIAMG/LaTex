@@ -4,6 +4,7 @@
 *.h5
 *.csv
 *.sh
+Elsevier/.gitignore
 
 # LaTeX Files
 

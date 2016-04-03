@@ -22,8 +22,8 @@
 
 % Pour pouvoir taper les accents directement dans le code LaTex:
 \usepackage[utf8]{inputenc} 
-% Le ~ est utilisé dans le code pour faire des espaces inséparables. Pour une raison que j'ignore, ça bug si on ne le déclare pas dans le préambule:
-\DeclareUnicodeCharacter{00A0}{~}
+% Pour correctement encoder le français dans le document:
+\usepackage[T1]{fontenc}
 
 % Pour numéroter les lignes: 
 \usepackage{lineno} 
@@ -33,7 +33,7 @@
 %==== Language ====
 
 % On charge les dictionnaires pour la langue avec babel. Ceci est important pour la bibliographie, les liens avec les unités et aussi pour les hyperliens dans le texte.
-\usepackage[french, english]{babel}
+\usepackage[english,french]{babel}
 
 % NOTE: On peut avoir un document avec plusieurs langues, ce qui est important pour la thèse par article car on a l'anglais et le français qui s'alternent.
 
@@ -70,7 +70,7 @@
 \usepackage[colorlinks=true]{hyperref}
 
 % Permet de faciliter la gestion des hyperliens dans le texte. Il est important de charger le module cleveref en tout dernier dans le préambule pour que ce dernier fonctionne correctement.
-\usepackage[noabbrev, capitalise, nameinlink, french, english]{cleveref} 
+\usepackage[noabbrev, nameinlink, english, french]{cleveref} 
 
 % noabbrev: Ne fera pas d'abbréviation des labels. Par exemple, si on enlève cette option, on aurait alors Fig. 1 dans le texte au lieu de Figure 1.
 
@@ -81,7 +81,7 @@
 
 \begin{document} % Ici débute le document en soit
 
-% On spécifie que le document est en français:
+% On spécifie explicitement que le document est en français pour être certain:
 \selectlanguage{french}
 
 % Produit la page de présentation de l'article. Tout est fait par le template de "Elsarticle". Il faut juste "remplir les cases" en quelque sorte.
