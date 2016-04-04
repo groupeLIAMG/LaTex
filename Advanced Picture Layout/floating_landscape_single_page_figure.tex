@@ -1,0 +1,33 @@
+\documentclass{article}
+
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{caption,subcaption}
+\usepackage{floatrow}
+\usepackage{graphicx}
+
+\usepackage{afterpage}
+\usepackage{pdflscape}
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\lipsum[1-5]
+
+\afterpage{
+\begin{landscape}    
+	\begin{figure}[!p]
+	    \ffigbox[\FBwidth]
+	    {
+	     \caption{Single figure in a single floating landscape page}
+	     \label{fig_lanscape}
+	    }
+	    {\includegraphics[width=\textwidth]{./img/everyone-loses-their-mind}}
+	\end{figure}
+\end{landscape}
+}
+
+\lipsum[6-15]
+     
+\end{document}
