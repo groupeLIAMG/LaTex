@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass{article}
 
 \usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
 
@@ -8,50 +8,59 @@
 
 \begin{document}
 
-% Side-by-side figures
+\section{Side-by-side figures}
 
-\begin{figure}[t]
+\begin{figure}[h]
     \begin{floatrow}[2]
         \ffigbox
         {
-         \caption{Caption of first figure.}
+         \caption{caption of first figure}
          \label{fig1}
         }
-        {\includegraphics[width=1.\linewidth]{./img/57224825}}
+        {\includegraphics[width=\linewidth]{./img/57224825}}
         
         \ffigbox
         {
-         \caption{Caption of second figure.}
+         \caption{caption of second figure}
          \label{fig2}
         }
-        {\includegraphics[width=1.\linewidth]{./img/57224825}}
+        {\includegraphics[width=\linewidth]{./img/57224825}}
     \end{floatrow}
 \end{figure}
 
-% One figure with side-by-side sub-figures
+\vspace{2cm}
 
-\begin{figure}[b]
-    \ffigbox[\textwidth]
+\section{One figure with side-by-side sub-figures}
+
+\begin{figure}[h]
+    \ffigbox
     {
-    \begin{subfloatrow}[2]
+    \begin{subfloatrow}[3]
         \ffigbox
         {
-         \caption{Subcation of subfigure a}
+         \caption{sub-caption of subfigure a}
          \label{subfig1}
         }
-        {\includegraphics[width=1.\linewidth]{./img/62392602}}
+        {\includegraphics[width=\linewidth]{./img/62392602}}
         
         \ffigbox
         {
-         \caption{Subcation of subfigure b}
+         \caption{sub-caption of subfigure b}
          \label{subfig2}
         }
-        {\includegraphics[width=1.\linewidth]{./img/62392602}}
+        {\includegraphics[width=\linewidth]{./img/62392602}}
+        
+        \ffigbox
+        {
+         \caption{sub-caption of subfigure c}
+         \label{subfig3}
+        }
+        {\includegraphics[width=\linewidth]{./img/62392602}}
     \end{subfloatrow} 
     }
     {
-    \caption{Figure caption of main figure}
-    \label{fig3}
+     \caption{caption of third figure}
+     \label{fig3}
     }
 \end{figure}
 
