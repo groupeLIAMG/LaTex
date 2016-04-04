@@ -1,0 +1,60 @@
+\documentclass{report}
+
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{caption,subcaption}
+\usepackage{floatrow}
+\usepackage{graphicx}
+
+\begin{document}
+
+% Side-by-side figures
+
+\begin{figure}[t]
+    \begin{floatrow}[2]
+        \ffigbox
+        {
+         \caption{Caption of first figure.}
+         \label{fig1}
+        }
+        {\includegraphics[width=1.\linewidth]{./img/57224825}}
+        
+        \ffigbox
+        {
+         \caption{Caption of second figure.}
+         \label{fig2}
+        }
+        {\includegraphics[width=1.\linewidth]{./img/57224825}}
+    \end{floatrow}
+\end{figure}
+
+% One figure with side-by-side sub-figures
+
+\begin{figure}[b]
+    \ffigbox[\textwidth]
+    {
+    \begin{subfloatrow}[2]
+        \ffigbox
+        {
+         \caption{Subcation of subfigure a}
+         \label{subfig1}
+        }
+        {\includegraphics[width=1.\linewidth]{./img/62392602}}
+        
+        \ffigbox
+        {
+         \caption{Subcation of subfigure b}
+         \label{subfig2}
+        }
+        {\includegraphics[width=1.\linewidth]{./img/62392602}}
+    \end{subfloatrow} 
+    }
+    {
+    \caption{Figure caption of main figure}
+    \label{fig3}
+    }
+\end{figure}
+
+
+     
+\end{document}
