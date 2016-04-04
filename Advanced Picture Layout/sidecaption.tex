@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{caption,subcaption}
+\usepackage{floatrow}
+\usepackage{graphicx}
+
+% We define a new floatrow caption style in the preambule:
+\newfloatcommand{fcapsideright}{figure}[{
+  \capbeside
+  \captionsetup[capbesidefigure]{labelsep=newline,justification=raggedright}
+  \thisfloatsetup{capbesideposition={right,bottom}}}][\FBwidth]
+
+\begin{document}
+
+\section{Single figure with sidecaption}
+
+\begin{figure}[h]
+    \fcapsideright % new command defined in preambule
+    {
+     \caption{Caption located to the right and vertically aligned with the bottom of the figure. The text is justified on the right and the label of the figure is separated with a new line from the text.}
+     \label{fig1}
+    }
+    {\includegraphics[width=0.5\textwidth]{./img/Idontalways}}
+\end{figure}
+
+\section{Single figure with loooooong caption}
+
+\begin{figure}[htb!]
+    \ffigbox[\FBwidth]
+    {
+     \caption{This is a very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long caption whose width is limited by the width of the figure.}
+     \label{fig2}
+    }
+    {\includegraphics[width=0.5\textwidth]{./img/moving-a-picture-in-microsoft-word}}
+\end{figure}
+     
+\end{document}
