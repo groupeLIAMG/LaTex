@@ -1,0 +1,61 @@
+
+\documentclass[12pt,addrfromleft,addrfromemail,addrfromphone,addrtoleft,orderdatefromto,stdletter,sigleft,dateleft]{newlfm}
+\usepackage[frenchb]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+}
+
+\urlstyle{same}
+
+% Ajuster les layout des blocks
+\newlfmP{dateskipafter=60pt}
+\newlfmP{sigsize=10pt}
+\newlfmP{Headlinewd=0pt,Footlinewd=0pt} % enleve les ligne horizonatales en hau et en bas du document
+
+
+% Signature
+\namefrom{John Doe}
+
+% Date
+\dateset{\today}
+
+% adresse de l'expediteur
+\addrfrom{%
+    John Doe\\
+    490, de la Couronne\\
+    Québec G1K9A9\\
+    Canada
+}
+\emailfrom{john.doe@gmail.com} % Email address
+\phonefrom{+1 123 456 78 91} % Phone number
+
+
+% addresse du déstinataire
+\addrto{%
+    Monsieur Sherlock Holmes\\
+    123 Bombay Street\\
+    Londres\\
+    }
+
+% Salutation
+\greetto{Monsieur Holmes,}
+
+% Clôture
+\closeline{Veuillez agréer, Monsieur Holmes, l’expression de mes sentiments distingués,}
+
+\begin{document}
+\begin{newlfm}
+Ceci est un exemple de lettre formelle (lettre de motivation, lettre de
+remerciements, \ldots) en utilisant la classe \emph{newlfm.cls}.\\
+
+Cette classe est largement adaptable aux exigences formelles de la lettre pour ce
+qui concerne les blocs d'adresses du destinataire et de l'expéditeur ainsi que les formules de salutation et de clôture, la date, \ldots. \\
+
+Pour des détails approfondis sur les options disponibles, vous pouvez vous referez au manuel de la classe (\url{http://www.ctan.org/tex-archive/macros/latex/contrib/newlfm}) ainsi qu’ à cette adresse \url{http://texblog.org/2013/11/11/latexs-alternative-letter-class-newlfm/}.
+
+\end{newlfm}
+\end{document}
