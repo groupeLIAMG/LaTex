@@ -1,0 +1,91 @@
+\documentclass{article}
+
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+
+\usepackage{caption,subcaption}
+\usepackage{floatrow}
+\usepackage{graphicx}
+
+%==== Pour mettre une page en format paysage ====
+
+\usepackage{pdflscape}
+
+%==== Pour les entêtes et pieds de page ====
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Entête générée grâce au module \emph{fancyhdr}}
+\rhead{page \thepage}
+\cfoot{Page mise au format paysage avec le module \emph{pdflscape}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+
+% Pour que la page en format paysage soit "flottante" dans le document et ne brise pas le flow du texte, on peut utiliser le module "afterpage". Voir exemple "floating_landscape_single_page_figure.tex".
+
+\begin{landscape}
+% set horizontal space between subfigures:
+\thisfloatsetup{subfloatrowsep=qquad} 
+% put "Figure 1" alone on the first line on top of the text:
+\captionsetup{labelsep=newline}
+\begin{figure}[h]
+    \ffigbox
+    {}
+    {
+    \begin{subfloatrow}[3]
+        \ffigbox
+        {
+         \caption{sub-caption of subfigure a}
+         \label{subfig1}
+        }
+        {\includegraphics[width=\linewidth]{./img/67972605}}
+        
+        \ffigbox
+        {
+         \caption{sub-caption of subfigure b}
+         \label{subfig2}
+        }
+        {\includegraphics[width=\linewidth]{./img/67972605}}
+        
+        \ffigbox
+        {
+         \caption{sub-caption of subfigure c}
+         \label{subfig1}
+        }
+        {\includegraphics[width=\linewidth]{./img/67972605}}
+    \end{subfloatrow}
+    
+    \vspace{1em}
+    
+    %Il faut décorer l'environnement subfloat ci-dessous avec * pour indiquer que la légende de la figure se retrouve à l'intérieur de ce subfloat. C'est pourquoi il est nécessaire d'utiliser la commande \subcaption du module "subcaption" pour indiquer les légendes des sous-figures à l'intérieur de l'environnement subfloatrow lorsque ce dernier est décoré par un *. En temps normal on pourrait tout simplement utiliser \caption et le subfloatrow s'occuperait du reste, tel que pour le subfloatrow ci-dessus.
+    
+    \begin{subfloatrow*}[3]    
+        \ffigbox
+        {
+         \subcaption{sub-caption of subfigure d}
+         \label{subfig1}
+        }
+        {\includegraphics[width=\linewidth]{./img/67972605}}
+        
+        \ffigbox
+        {
+         \subcaption{sub-caption of subfigure e}
+         \label{subfig1}
+        }
+        {\includegraphics[width=\linewidth]{./img/67972605}}
+        
+        \ffigbox
+        {
+         \RawCaption{ 
+         \caption{La commande \emph{$\backslash$RawCaption} permet de libérer le contenu de la légende et de la placer à l'endroit désiré sans perturber la mise en page des éléments à l'intérieur de l'environnement ``float''. Dans cet exemple, la légende de la figure est considérée comme une sixième sous-figure dans la mise en page.}
+         \label{fig:param_uncertain}}          
+        }
+        {}
+    \end{subfloatrow*}
+    }
+\end{figure}
+\end{landscape}
+     
+\end{document}

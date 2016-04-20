@@ -1,0 +1,83 @@
+\documentclass{article}
+
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{caption,subcaption}
+\usepackage{floatrow}
+\usepackage{graphicx}
+
+\usepackage{pdflscape}
+
+\begin{document}
+
+%\section{Side-by-side figures}
+
+\begin{landscape}
+\begin{figure}[h]
+    \ffigbox
+    {}
+    {
+    \begin{subfloatrow*}[3]
+        \ffigbox
+        {
+         \subcaption{sub-caption of subfigure a}
+         \label{subfig1}
+        }
+        {\includegraphics[width=0.75\linewidth]{./img/62392602}}
+        
+        \ffigbox
+        {
+         \subcaption{sub-caption of subfigure b}
+         \label{subfig2}
+        }
+        {\includegraphics[width=0.75\linewidth]{./img/62392602}}
+        
+        \ffigbox
+        {
+         \subcaption{sub-caption of subfigure a}
+         \label{subfig1}
+        }
+        {\includegraphics[width=0.75\linewidth]{./img/62392602}}
+    \end{subfloatrow*}
+    
+    \vspace{1em}
+    
+    \begin{subfloatrow*}
+        \ffigbox
+        {
+         \subcaption{sub-caption of subfigure a}
+         \label{subfig1}
+        }
+        {\includegraphics[width=0.75\linewidth]{./img/62392602}}
+          
+        \ffigbox
+        {
+         \subcaption{sub-caption of subfigure b}
+         \label{subfig2}
+        }
+        {\includegraphics[width=0.75\linewidth]{./img/62392602}}
+    \end{subfloatrow*} 
+    
+    \vspace{1em}
+    
+    \begin{subfloatrow*}
+        \ffigbox
+        {
+         \subcaption{sub-caption of subfigure a}
+         \label{subfig1}
+        }
+        {\includegraphics[width=0.75\linewidth]{./img/62392602}}
+        
+        \ffigbox{\RawCaption
+        {
+         \caption{Tukey box plots of the estimation error of the annual groundwater recharge (all contexts pooled together) obtained from the sensitivity analyses for (a) the thermal conductivity of the sand fraction, $k_{sand}$, (b) the soil total porosity, $n$, and (c) the soil volumetric water content, $\theta_w$. IQR = Interquartile range.}
+          \label{fig:param_uncertain}
+         }}
+         {}
+    \end{subfloatrow*}
+    }
+\end{figure}
+\end{landscape}
+
+     
+\end{document}
