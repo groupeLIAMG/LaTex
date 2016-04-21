@@ -32,7 +32,7 @@
 \captionsetup{labelsep=newline}
 \begin{figure}[h]
     \ffigbox
-    {}
+    {} % On indique ici que la légende est vide. Celle-ci sera définie plus loin dans un des deux environnement subfloatrow à l'aire de \RawCaption
     {
     \begin{subfloatrow}[3]
         \ffigbox
@@ -86,7 +86,7 @@
          \caption{La commande \emph{$\backslash$RawCaption} permet de libérer le contenu de la légende et de la placer à l'endroit désiré sans perturber la mise en page des éléments à l'intérieur de l'environnement ``float''. Dans cet exemple, la légende de l'assemblage est considérée comme une sixième sous-figure dans la mise en page.}
          \label{fig:param_uncertain}}          
         }
-        {}
+        {} % On indique ici que le contenu du ffigbox est vide. Autrement dit, on a une figure avec juste un caption, pas d'image.
     \end{subfloatrow*}
     }
 \end{figure}
