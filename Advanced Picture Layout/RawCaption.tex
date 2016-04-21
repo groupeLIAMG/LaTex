@@ -26,9 +26,9 @@
 % Pour que la page en format paysage soit "flottante" dans le document et ne brise pas le flow du texte, on peut utiliser le module "afterpage". Voir exemple "floating_landscape_single_page_figure.tex".
 
 \begin{landscape}
-% set horizontal space between subfigures:
+% Définir l'espace horizontal entre les sous-figures:
 \thisfloatsetup{subfloatrowsep=qquad} 
-% put "Figure 1" alone on the first line on top of the text:
+% Mettre le labellé de la légende à par sur la première ligne, au-dessus du texte:
 \captionsetup{labelsep=newline}
 \begin{figure}[h]
     \ffigbox
@@ -59,7 +59,11 @@
     
     \vspace{1em}
     
-    %Il faut décorer l'environnement subfloat ci-dessous avec * pour indiquer que la légende de la figure se retrouve à l'intérieur de ce subfloat. C'est pourquoi il est nécessaire d'utiliser la commande \subcaption du module "subcaption" pour indiquer les légendes des sous-figures à l'intérieur de cet environnement subfloatrow. En temps normal, on pourrait tout simplement utiliser \caption et le subfloatrow s'occuperait du reste, tel que pour le subfloatrow ci-dessus.
+    % Il faut décorer l'environnement subfloat ci-dessous avec * pour indiquer que la légende de la figure se retrouve à l'intérieur de ce subfloatrow.
+    
+    % Cela est dû au fait que les \caption sont par défaut traités comme des sous-légendes à l'intérieur de l'environnement subfloatrow. En décorant le subfloatrow avec *, on indique alors que \caption ne doit pas être considérée comme une sous-légende. Il est alors nécessaire d'utiliser la commande \subcaption du module "subcaption" pour faire la distinction entre la légende et les sous-légendes dans l'environnement subfloatrow*.
+    
+    % En temps normal, on pourrait tout simplement utiliser \caption et le subfloatrow automatiquement considérait celles-ci comme des sous-légendes par défaut, tel que pour le premier subfloatrow ci-dessus.
     
     \begin{subfloatrow*}[3]    
         \ffigbox
